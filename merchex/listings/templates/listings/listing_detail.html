@@ -1,0 +1,31 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<h2>{{ listing.title }}</h2>
+
+<ul>
+ <li>
+     {% if listing.sold %}
+        sold : {{ listing.sold }}
+     {% else %}
+        sold: False
+     {% endif %}
+
+ </li>
+ <li>
+     {% if listing.year %}
+        Année  : {{ listing.year }}
+     {% endif %}
+ </li>
+
+ <li>
+     {% if listing.type %}
+        Type : {{ listing.get_type_display  }}
+     {% endif %}
+ </li>
+</ul>
+{% if listing.description %}
+    <p>{{ listing.description }}</p>
+{% endif %}
+{% endblock %}
