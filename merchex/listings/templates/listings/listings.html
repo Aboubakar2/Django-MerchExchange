@@ -2,11 +2,15 @@
 
 {% block content  %}
     <h1>Hello Django !</h1>
-    <p>Mes annoces préférés sont :</p>
-    <!-- liste des annonces -->
+    <p>Mes annonces préférés sont :</p>
+    <a href="{% url 'listing-create' %}">Ajouter une annonce</a>
     <ul>
         {% for listing in listings %}
-            <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a></li>
+            <li>
+                <a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a>
+                 - <a href="{% url 'listing-update' listing.id %}">[modifier]
+                - <a href="{% url 'listing-delete' listing.id %}">Supprimer</a></a>
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}

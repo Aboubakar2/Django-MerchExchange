@@ -28,4 +28,9 @@
 {% if listing.description %}
     <p>{{ listing.description }}</p>
 {% endif %}
+
+<a href="{% url 'listing-update' listing.id %}">Modifier cette annonce</a>
+<a href="{% url 'listing-delete' listing.id %}">Supprimer cette annonce</a>
+<a href="{% url 'listings' %}">Retour à toutes les annonces</a>
+
 {% endblock %}
